@@ -1,0 +1,18 @@
+SELECT objectName, quantity FROM nonsellableInventory ORDER BY quantity ASC;
+SELECT itemID, quantity FROM nonsellableInventory WHERE deliveredBy='case' AND quantity<5 LIMIT 20;
+SELECT objectName, itemID, extendedPrice FROM nonsellableInventory WHERE extendedPrice > 100.00 OR extendedPrice < 40;
+SELECT SUM(extendedprice) nonsellable_inv_totalcost FROM nonsellableinventory;
+SELECT AVG(extendedprice) nonsellable_inv_avgcost FROM nonsellableinventory;
+SELECT * FROM dailysales WHERE week_number = 1;
+SELECT * FROM dailysales WHERE itemid = '501' AND week_number = 3 ORDER BY total DESC;
+SELECT  SUM(total) week3_total FROM dailysales WHERE week_number = 3;
+SELECT itemid, SUM(total) item_totals FROM dailysales WHERE week_number = 4 GROUP BY itemid ORDER BY itemid;
+SELECT * FROM dailysales WHERE total > 400;
+SELECT * FROM sellableinvorderrelation WHERE itemid = 506;
+SELECT * FROM sellableinvorderrelation WHERE menuprice > 5;
+SELECT * FROM sellableinvorderrelation WHERE quantofunderlyingprod >= 5;
+SELECT * FROM sellableinvorderrelation WHERE productid = 1;
+SELECT * FROM salestoinventoryconversion WHERE conversionID = 3;
+SELECT * FROM salestoinventoryconversion WHERE sku = 'c1001';
+SELECT * FROM salestoinventoryconversion WHERE productID = 5;
+SELECT sku, amountofbaseproduct FROM salestoinventoryconversion ORDER BY amountofbaseproduct DESC;
